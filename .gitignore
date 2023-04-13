@@ -4,3 +4,5 @@ env
 .venv
 .env.prod
 db.sqlite3
+images/
+/images/
