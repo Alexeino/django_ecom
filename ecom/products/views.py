@@ -3,10 +3,12 @@ from rest_framework.views import APIView
 from .models import Product
 from products.api.serializers import ProductSerializer
 from rest_framework.response import Response
-from rest_framework import status
-
+from rest_framework import status, permissions
+from .permissions import ProductPermission
 
 class ProductAV(APIView):
+    
+    permission_classes = [ProductPermission]
     
     def get(self,request):
         products = Product.objects.all()
@@ -29,6 +31,8 @@ class ProductAV(APIView):
             },status=status.HTTP_400_BAD_REQUEST)
             
 class ProductDetailsAV(APIView):
+    
+    permission_classes = [ProductPermission]
     
     def get(self,request,pk):
         if pk is None:
