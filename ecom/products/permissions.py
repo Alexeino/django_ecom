@@ -7,10 +7,13 @@ class ProductPermission(BasePermission):
         Staff:
             View: ProductAV
             Allowed:
-                -   Add Products
+                -   Create Products
                 -   Delete Product
                 -   Update Product
-                -   
+        Customer:
+            View: ProductAV
+            Allowed:
+                -   Retrieve Products
     """
     
     def has_permission(self, request, view):
