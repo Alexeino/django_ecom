@@ -1,0 +1,13 @@
+Hi I am working on a simple micro ecommerce project using django, drf and boto3 (s3) etc. 
+
+The issue is :-
+
+In the Product Views
+
+While uploading product with image, if that image is already in s3 for other model object, It would use the same image reference for new product object (hence no duplicate img in bucket). But when deleting one of the objects the image is removed from s3 bucket completely due to django-cleanup library and other objects that are using same image reference, lose their image file.
+
+Can you let me know any easy workaround.???
+
+Approach I am thinking of instead of django-cleanup i should write my own signals but not sure if from the url i can check if img is being used by other objects or not.
+
+Code URL: https://github.com/Alexeino/django_ecom.git
